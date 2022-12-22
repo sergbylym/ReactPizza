@@ -1,6 +1,6 @@
 import React from "react";
 
-const PizzaBlock = ({title, price ,imageUrl}) => {
+const PizzaBlock = ({title, price ,imageUrl, sizes}) => {
   
    return (
       <div className="pizza-block">
@@ -16,9 +16,11 @@ const PizzaBlock = ({title, price ,imageUrl}) => {
                     <li>Traditional</li>
                   </ul>
                   <ul>
-                    <li className="active">26 сm.</li>
-                    <li>30 сm.</li>
-                    <li>40 сm.</li>
+                   {
+                     sizes.map((size) => (
+                     <li>{size} sm.</li>
+                     ))
+                   }
                   </ul>
                 </div>
                 <div className="pizza-block__bottom">
