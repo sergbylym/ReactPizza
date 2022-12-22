@@ -4,7 +4,7 @@ const Categories = () => {
 
   const onClickCategory = (index) => {
     setActiveIndex(index);
-  };
+  }; //mark  selected category
   return (
     <div className="categories">
       <ul>
