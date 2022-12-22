@@ -2,19 +2,22 @@ import React from "react";
 
 const PizzaBlock = ({ title, price, imageUrl, sizes, types }) => {
   const typeNames = ["Traditional", "Thin crust"];
+  const [activeType, setActiveType] = React.useState(0)
+  const [activeSize, setActiveSize] = React.useState(0)
   return (
     <div className="pizza-block">
       <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
       <h4 className="pizza-block__title">{title}</h4>
       <div className="pizza-block__selector">
         <ul>
-          {types.map((type) => (
-            <li>{type}</li>
+          {types.map((typeId) => (
+           <li onClick={()=> setActiveType(typeId)} className= {activeType === typeId ? 'active' : ''}>{typeNames[typeId]}</li>
+             
           ))}
         </ul>
         <ul>
-          {sizes.map((size) => (
-            <li>{size} sm.</li>
+          {sizes.map((size, index) => (
+            <li onClick={()=> setActiveSize(index)} className={activeSize === index? 'active' : ''}>{size} sm.</li>
           ))}
         </ul>
       </div>
