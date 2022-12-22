@@ -1,9 +1,9 @@
 
 const Categories =() => {
    return (
-      <div class="categories">
+      <div className="categories">
       <ul>
-        <li class="active">All</li>
+        <li className="active">All</li>
         <li>Meet</li>
         <li>Vegetariano</li>
         <li>Grill</li>

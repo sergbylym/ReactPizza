@@ -3,26 +3,21 @@ import Categories from "./components/Categories";
 import Header from "./components/Header";
 import PizzaBlock from "./components/PizzaBlock";
 import Sort from "./components/Sort";
-function App() {
+function App() { 
   return (
-    <div className="App">
-      <div class="wrapper">
+    <div classNameName="App">
+      <div className="wrapper">
         <Header />
-        <div class="content">
-          <div class="container">
-            <div class="content__top">
+        <div className="content">
+          <div className="container">
+            <div className="content__top">
               <Categories />
               <Sort />
             </div>
-            <h2 class="content__title">All pizza</h2>
-            <div class="content__items">
-              <PizzaBlock />
-              <PizzaBlock />
-              <PizzaBlock />
-              <PizzaBlock />
-              <PizzaBlock />
-              <PizzaBlock />
-              <PizzaBlock />
+            <h2 className="content__title">All pizza</h2>
+            <div className="content__items">
+              <PizzaBlock title="Mexicano" price="350UA" />
+              <PizzaBlock  title = 'Vegetariano' price = '300UA' />
             </div>
           </div>
         </div>
