@@ -3,7 +3,7 @@ const Sort = () => {
    const [open, setOpen] = React.useState(false);
    const [selected, setSelected] = React.useState(0)
    const list = ['Popular', 'Price', 'Alfabet']
-
+  const sortName = list[selected]
    const onClickListItem = (index) => {
       setSelected(index);
       setOpen(false)
@@ -23,8 +23,8 @@ const Sort = () => {
             fill="#2C2C2C"
           />
         </svg>
-        <b>Sort:</b>
-        <span onClick={() => setOpen(!open)}>Most  popular</span>
+        <b>Sort: </b>
+        <span onClick={() => setOpen(!open)}>{sortName}</span>
       </div>
       {open && (
          <div className="sort__popup">
