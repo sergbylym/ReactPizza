@@ -1,4 +1,6 @@
+import React from 'react';
 const Sort = () => {
+   const [open, setOpen] = React.useState;
    return (
       <div className="sort">
       <div className="sort__label">
