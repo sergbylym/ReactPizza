@@ -1,10 +1,10 @@
 import React from 'react';
 const Sort = () => {
-   const [open, setOpen] = React.useState;
+   const [open, setOpen] = React.useState(false);
    return (
       <div className="sort">
       <div className="sort__label">
-        <svg
+        <svg 
           width="10"
           height="6"
           viewBox="0 0 10 6"
@@ -17,15 +17,17 @@ const Sort = () => {
           />
         </svg>
         <b>Sort:</b>
-        <span>Most  popular</span>
+        <span onClick={() => setOpen(!open)}>Most  popular</span>
       </div>
-      <div className="sort__popup">
-        <ul>
-          <li className="active">Popular</li>
-          <li>Prise</li>
-          <li>Alfabet</li>
-        </ul>
-      </div>
+      {open && (
+         <div className="sort__popup">
+         <ul>
+           <li className="active">Popular</li>
+           <li>Prise</li>
+           <li>Alfabet</li>
+         </ul>
+       </div>
+      )}
     </div>
    )
 }
