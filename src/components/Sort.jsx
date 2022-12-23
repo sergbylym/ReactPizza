@@ -3,6 +3,11 @@ const Sort = () => {
    const [open, setOpen] = React.useState(false);
    const [selected, setSelected] = React.useState(0)
    const list = ['Popular', 'Price', 'Alfabet']
+
+   const onClickListItem = (index) => {
+      setSelected(index);
+      setOpen(false)
+   } //func which close popup onClick
    return (
       <div className="sort">
       <div className="sort__label">
@@ -24,7 +29,7 @@ const Sort = () => {
       {open && (
          <div className="sort__popup">
          <ul>
-            {list.map((li, index) =>  <li key={index} onClick = {(() => setSelected(index))} className= {selected === index ? 'active': ''} >{li}</li>    
+            {list.map((li, index) =>  <li key={index} onClick = {(() => onClickListItem(index))} className= {selected === index ? 'active': ''} >{li}</li>    
             )}
            
          </ul>
