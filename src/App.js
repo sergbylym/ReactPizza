@@ -4,7 +4,7 @@ import Categories from "./components/Categories";
 import Header from "./components/Header";
 import PizzaBlock from "./components/PizzaBlock";
 import Sort from "./components/Sort";
-// import pizzas from "./assets/pizzas.json";
+// import pizzas from "./assets/pizzas.json";// files for render pizza without backend
 function App() {
   let [items, setItems] = React.useState([]);
   React.useEffect(() => {
