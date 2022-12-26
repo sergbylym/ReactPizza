@@ -1,9 +1,12 @@
+import { NavLink } from 'react-router-dom';
 import PizzaLogo from '../assets/img/pizza-logo.svg'
+
 
 const Header = () => {
   return (
     <div className="header">
       <div className="container">
+         <NavLink to='/'>
         <div className="header__logo">
           <img width="38" src={PizzaLogo} alt="Pizza logo" />
           <div>
@@ -11,6 +14,7 @@ const Header = () => {
             <p>THE BEST DELICIOUS PIZZA</p>
           </div>
         </div>
+        </NavLink>
         <div className="header__cart">
           <a href="/cart.html" className="button button--cart">
             <span>520 ₽</span>
