@@ -2,7 +2,7 @@ import React from "react";
 import "../src/scss/app.scss";
 import Categories from "./components/Categories";
 import Header from "./components/Header";
-import PizzaBlock from "./components/PizzaBlock";
+import PizzaBlock from "./components/PizzaBock";
 import Sort from "./components/Sort";
 // import pizzas from "./assets/pizzas.json";// files for render pizza without backend
 function App() {
