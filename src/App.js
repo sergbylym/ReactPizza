@@ -3,6 +3,7 @@ import "../src/scss/app.scss";
 import Header from "./components/Header";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
+import Cart from "./pages/Cart";
 import NotFound from "./pages/NotFound";
 // import pizzas from "./assets/pizzas.json";// files for render pizza without backend
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <div className="content">
           <Routes>
             <Route path="/" element={<Home/>}/>
+            <Route path="/cart" element={<Cart/>}/>
             <Route path="*" element={<NotFound/>}/>
           </Routes>
         </div>
