@@ -17,7 +17,7 @@ const Header = () => {
         </NavLink>
         <div className="header__cart">
           <NavLink to="/cart" className="button button--cart">
-            <span>520 ₽</span>
+            <span>520 UA</span>
             <div className="button__delimiter"></div>
             <svg
               width="18"
