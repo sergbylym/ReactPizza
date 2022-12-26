@@ -9,7 +9,7 @@ const NotFoundBlock = () => {
         <br />
         Not Found :(
       </h1>
-      <p>Unfortunitly pages does not access</p>
+      <p className={styles.description}>Unfortunitly pages does not access</p>
     </div>
   );
 };
