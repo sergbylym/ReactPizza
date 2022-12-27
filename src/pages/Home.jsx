@@ -10,14 +10,15 @@ const Home = () => {
   const [categoryId, setCategoryId] = React.useState(0);
 
   React.useEffect(() => {
-    fetch("https://63a6dada59fd83b1bb393cd1.mockapi.io/items")
+   setIsLoading(true)
+    fetch("https://63a6dada59fd83b1bb393cd1.mockapi.io/items?category=" + categoryId)
       .then(res =>  res.json())
       .then((arr) => {
         setItems(arr);
         setIsLoading(false)
       });
       window.scrollTo(0,0)
-  }, []);
+  }, [categoryId]);
    return (
 
    <div className="container">
