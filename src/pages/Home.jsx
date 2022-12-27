@@ -6,6 +6,8 @@ import PizzaBlock from "../components/PizzaBock"
 const Home = () => {
    let [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true)
+  const [sortType, setSortType ] = React.useState(0)
+  const [categoryId, setCategoryId] = React.useState(0);
 
   React.useEffect(() => {
     fetch("https://63a6dada59fd83b1bb393cd1.mockapi.io/items")
@@ -20,7 +22,7 @@ const Home = () => {
 
    <div className="container">
 <div className="content__top">
-  <Categories />
+  <Categories value={categoryId} />
   <Sort />
 </div>
 <h2 className="content__title">All pizza</h2>

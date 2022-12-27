@@ -1,5 +1,5 @@
 import React from "react";
-const Categories = () => {
+const Categories = ({value}) => {
   const [activeIndex, setActiveIndex] = React.useState(0);
   const categories = ["All", "Meet", "Vegetariano", "Grill", "Hot"];
   return (
