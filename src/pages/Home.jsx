@@ -6,7 +6,10 @@ import PizzaBlock from "../components/PizzaBock"
 const Home = () => {
    let [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true)
-  const [sortType, setSortType ] = React.useState(0)
+  const [sortType, setSortType ] = React.useState({
+   name: 'Popular',
+   sortType:'rating',
+  })
   const [categoryId, setCategoryId] = React.useState(0);
 
   React.useEffect(() => {
