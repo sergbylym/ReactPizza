@@ -14,6 +14,7 @@ const Home = () => {
         setItems(arr);
         setIsLoading(false)
       });
+      window.scrollTo(0,0)
   }, []);
    return (
 
