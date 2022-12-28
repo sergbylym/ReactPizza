@@ -32,7 +32,13 @@ const Sort = ({value, onChangeSort}) => {
       {open && (
          <div className="sort__popup">
          <ul>
-            {list.map((obj, index) =>  <li key={index} onClick = {(() => onClickListItem(obj))} className= {value.sortProp ===obj.sortProp ? 'active': ''} >{obj.name}</li>    
+            {list.map((obj, index) =>  
+            <li 
+            key={index} 
+            onClick = {(() => onClickListItem(obj))} 
+            className= {value.sortProp ===obj.sortProp ? 'active': ''} >
+               {obj.name}
+               </li>    
             )}
            
          </ul>
