@@ -14,11 +14,12 @@ const Home = ({ searchValue}) => {
 
   React.useEffect(() => {
     setIsLoading(true);
+    const search = searchValue ? `&search = ${searchValue}` : ''
     fetch(
       `https://63a6dada59fd83b1bb393cd1.mockapi.io/items?${
         categoryId > 0 ? `category =${categoryId} ` : ""
       }
-      &sortBy=${sortType.sortProp}&oreder=desc `
+      &sortBy=${sortType.sortProp}&oreder=desc$ ${search} `
     )
       .then((res) => res.json())
       .then((arr) => {
@@ -26,7 +27,7 @@ const Home = ({ searchValue}) => {
         setIsLoading(false);
       });
     window.scrollTo(0, 0);
-  }, [categoryId, sortType]); 
+  }, [categoryId, sortType, searchValue]); 
 
   const pizzas = items
     .filter((obj) => {
