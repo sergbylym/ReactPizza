@@ -26,6 +26,8 @@ const Home = () => {
     window.scrollTo(0, 0);
   }, [categoryId, sortType]);
 
+  const pizzas = items.map((obj) => <PizzaBlock key={obj.id} {...obj} />)
+  const skeleton = [...new Array(6)].map((_, index) => <Skeleton key={index} />)
   return (
     <div className="container">
       <div className="content__top">
@@ -38,8 +40,8 @@ const Home = () => {
       <h2 className="content__title">All pizza</h2>
       <div className="content__items">
         {isLoading
-          ? [...new Array(6)].map((_, index) => <Skeleton key={index} />)
-          : items.map((obj) => <PizzaBlock key={obj.id} {...obj} />)}
+          ? skeleton
+          : pizzas}
       </div>
     </div>
   );
