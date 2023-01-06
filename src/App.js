@@ -7,10 +7,11 @@ import Cart from "./pages/Cart";
 import NotFound from "./pages/NotFound";
 // import pizzas from "./assets/pizzas.json";// files for render pizza without backend
 function App() {
+  const [searchValue, setSearchValue] = React.useState('')
   return (
     <div className="App">
       <div className="wrapper">
-        <Header />
+        <Header searchValue={searchValue} setSearchValue={setSearchValue} />
         <div className="content">
           <Routes>
             <Route path="/" element={<Home/>}/>
