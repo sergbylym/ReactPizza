@@ -1,8 +1,9 @@
 import style from "./SearchBlock.module.scss";
 const Search = () => {
   return (
-    <div>
+    <div className={style.root}>
       <svg
+      className={style.icon}
         enable-background="new 0 0 32 32"
         id="Glyph"
         version="1.1"
@@ -14,7 +15,7 @@ const Search = () => {
           id="XMLID_223_"
         />
       </svg>
-      <input className={style.root} placeholder="Search pizza..." />
+      <input className={style.input} placeholder="Search pizza..." />
     </div>
   );
 };
