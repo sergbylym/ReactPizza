@@ -3,7 +3,7 @@ import Categories from "../components/Categories";
 import Sort from "../components/Sort";
 import Skeleton from "../components/PizzaBock/Skeleton";
 import PizzaBlock from "../components/PizzaBock";
-const Home = () => {
+const Home = ({ searchValue}) => {
   let [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
   const [categoryId, setCategoryId] = React.useState(0);
@@ -15,19 +15,29 @@ const Home = () => {
   React.useEffect(() => {
     setIsLoading(true);
     fetch(
-      `https://63a6dada59fd83b1bb393cd1.mockapi.io/items?${categoryId > 0 ? `category =${categoryId} ` : ''}
-      &sortBy=${sortType.sortProp}&oreder=desc `,
-      )
+      `https://63a6dada59fd83b1bb393cd1.mockapi.io/items?${
+        categoryId > 0 ? `category =${categoryId} ` : ""
+      }
+      &sortBy=${sortType.sortProp}&oreder=desc `
+    )
       .then((res) => res.json())
       .then((arr) => {
         setItems(arr);
         setIsLoading(false);
       });
     window.scrollTo(0, 0);
-  }, [categoryId, sortType]);
+  }, [categoryId, sortType]); 
 
-  const pizzas = items.map((obj) => <PizzaBlock key={obj.id} {...obj} />)
-  const skeleton = [...new Array(6)].map((_, index) => <Skeleton key={index} />)
+  const pizzas = items
+    .filter((obj) => {
+      if (obj.title.toLowerCase().includes(searchValue.toLowerCase())) {
+        return true;
+      }
+      return false;
+    }).map((obj) => <PizzaBlock key={obj.id} {...obj} />);
+  const skeleton = [...new Array(6)].map((_, index) => 
+    <Skeleton key={index} />
+   );
   return (
     <div className="container">
       <div className="content__top">
@@ -38,11 +48,7 @@ const Home = () => {
         <Sort value={sortType} onChangeSort={(id) => setSortType(id)} />
       </div>
       <h2 className="content__title">All pizza</h2>
-      <div className="content__items">
-        {isLoading
-          ? skeleton
-          : pizzas}
-      </div>
+      <div className="content__items">{isLoading ? skeleton : pizzas}</div>
     </div>
   );
 };
