@@ -3,6 +3,7 @@ const Search = ({searchValue ,setSearchValue}) => {
   return (
     <div className={style.root}>
       <svg
+      value={searchValue}
       className={style.icon}
         enable-background="new 0 0 32 32"
         id="Glyph"
