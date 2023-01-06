@@ -1,5 +1,5 @@
 import style from "./SearchBlock.module.scss";
-const Search = () => {
+const Search = ({searchValue ,setSearchValue}) => {
   return (
     <div className={style.root}>
       <svg
@@ -15,7 +15,7 @@ const Search = () => {
           id="XMLID_223_"
         />
       </svg>
-      <input className={style.input} placeholder="Search pizza..." />
+      <input  onChange={(event) => setSearchValue(event.target.value) } className={style.input} placeholder="Search pizza..." />
     </div>
   );
 };
