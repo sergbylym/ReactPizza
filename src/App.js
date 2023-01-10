@@ -6,11 +6,15 @@ import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import NotFound from "./pages/NotFound";
 // import pizzas from "./assets/pizzas.json";// files for render pizza without backend
+
+
+const SearchContext = React.createContext()
 function App() {
   const [searchValue, setSearchValue] = React.useState('')
   return (
-    <div className="App">
-      <div className="wrapper">
+   
+     <SearchContext.Provider value={{searchValue, setSearchValue}}>
+       <div className="wrapper">
         <Header searchValue={searchValue} setSearchValue={setSearchValue} />
         <div className="content">
           <Routes>
@@ -20,7 +24,8 @@ function App() {
           </Routes>
         </div>
       </div>
-    </div>
+     </SearchContext.Provider>
+    
   );
 }
 
