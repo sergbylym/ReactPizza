@@ -8,14 +8,14 @@ import NotFound from "./pages/NotFound";
 // import pizzas from "./assets/pizzas.json";// files for render pizza without backend
 
 
-const SearchContext = React.createContext()
+ export const SearchContext = React.createContext()
 function App() {
   const [searchValue, setSearchValue] = React.useState('')
   return (
    
      <SearchContext.Provider value={{searchValue, setSearchValue}}>
        <div className="wrapper">
-        <Header searchValue={searchValue} setSearchValue={setSearchValue} />
+        <Header />
         <div className="content">
           <Routes>
             <Route path="/" element={<Home searchValue={searchValue}/>}/>
