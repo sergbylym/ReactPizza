@@ -5,16 +5,25 @@ import Skeleton from "../components/PizzaBock/Skeleton";
 import PizzaBlock from "../components/PizzaBock";
 import Pagination from "../components/Pagination";
 import { SearchContext } from "../App";
+import { useSelector } from 'react-redux'
 const Home = () => {
+
+const categoryId = useSelector((state) => state.filterSlice.categoryId)
+
   const {searchValue} = React.useContext(SearchContext)
   let [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
-  const [categoryId, setCategoryId] = React.useState(0);
+  // const [categoryId, setCategoryId] = React.useState(0); 
   const [currentPage, setCurrentPage] = React.useState(1);
   const [sortType, setSortType] = React.useState({
     name: "Popular",
     sortType: "rating",
   });
+
+
+  const onChangeCategory = (id) => {
+
+  }
 
   React.useEffect(() => {
     setIsLoading(true);
@@ -48,7 +57,7 @@ const Home = () => {
       <div className="content__top">
         <Categories
           value={categoryId}
-          onClickCategory={(id) => setCategoryId(id)}
+          onClickCategory={onChangeCategory}
         />
         <Sort value={sortType} onChangeSort={(id) => setSortType(id)} />
       </div>
