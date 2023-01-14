@@ -5,11 +5,12 @@ import Skeleton from "../components/PizzaBock/Skeleton";
 import PizzaBlock from "../components/PizzaBock";
 import Pagination from "../components/Pagination";
 import { SearchContext } from "../App";
-import { useSelector } from 'react-redux'
+import { setCategoryID } from "../redux/slices/filterSlice";
+import { useSelector, useDispatch } from 'react-redux'
 const Home = () => {
 
 const categoryId = useSelector((state) => state.filterSlice.categoryId)
-
+ const dispatch = useDispatch()
   const {searchValue} = React.useContext(SearchContext)
   let [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
@@ -22,7 +23,7 @@ const categoryId = useSelector((state) => state.filterSlice.categoryId)
 
 
   const onChangeCategory = (id) => {
-
+  dispatch(setCategoryID(id))
   }
 
   React.useEffect(() => {
