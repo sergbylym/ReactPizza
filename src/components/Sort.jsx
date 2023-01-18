@@ -3,7 +3,7 @@ import { useSelector,useDispatch } from 'react-redux';
 const Sort = () => {
 
    const dispatch = useDispatch();
-   const sort =useSelector((state) => state.filterSlice.sort.sortType)
+   const sort =useSelector((state) => state.filterSlice.sort)
    const [open, setOpen] = React.useState(false);
    
    const list = [
