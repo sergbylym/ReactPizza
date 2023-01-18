@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector,useDispatch } from 'react-redux';
+import {setSort} from '../redux/slices/filterSlice'
 const Sort = () => {
 
    const dispatch = useDispatch();
@@ -11,8 +12,8 @@ const Sort = () => {
        {name:'Price', sortProp:'price'},
         {name:'Alfabet', sortProp:'title'}]
   
-   const onClickListItem = (index) => {
-      // onChangeSort(index);
+   const onClickListItem = (obj) => {
+     dispatch(setSort(obj))
       setOpen(false)
    } //func which close popup onClick
    return (
