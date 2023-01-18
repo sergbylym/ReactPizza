@@ -15,7 +15,7 @@ const Home = () => {
   let [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
   const [currentPage, setCurrentPage] = React.useState(1);
-
+  const sortType = useSelector((state) => state.filterSlice.sort)
 
   const onChangeCategory = (id) => {
     dispatch(setCategoryID(id));

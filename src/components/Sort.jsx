@@ -1,5 +1,9 @@
 import React from 'react';
-const Sort = ({value, onChangeSort}) => {
+import { useSelector,useDispatch } from 'react-redux';
+const Sort = () => {
+
+   const dispatch = useDispatch();
+   const sort =useSelector((state) => state.filterSlice.sort.sortType)
    const [open, setOpen] = React.useState(false);
    
    const list = [
@@ -8,7 +12,7 @@ const Sort = ({value, onChangeSort}) => {
         {name:'Alfabet', sortProp:'title'}]
   
    const onClickListItem = (index) => {
-      onChangeSort(index);
+      // onChangeSort(index);
       setOpen(false)
    } //func which close popup onClick
    return (
@@ -27,7 +31,7 @@ const Sort = ({value, onChangeSort}) => {
           />
         </svg>
         <b>Sort: </b>
-        <span onClick={() => setOpen(!open)}>{value.name}</span>
+        <span onClick={() => setOpen(!open)}>{sort.name}</span>
       </div>
       {open && (
          <div className="sort__popup">
@@ -36,7 +40,7 @@ const Sort = ({value, onChangeSort}) => {
             <li 
             key={index} 
             onClick = {(() => onClickListItem(obj))} 
-            className= {value.sortProp ===obj.sortProp ? 'active': ''} >
+            className= {sort.sortProp ===obj.sortProp ? 'active': ''} >
                {obj.name}
                </li>    
             )}
