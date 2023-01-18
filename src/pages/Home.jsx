@@ -6,29 +6,24 @@ import PizzaBlock from "../components/PizzaBock";
 import Pagination from "../components/Pagination";
 import { SearchContext } from "../App";
 import { setCategoryID } from "../redux/slices/filterSlice";
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from "react-redux";
 const Home = () => {
+  const categoryId = useSelector((state) => state.filterSlice.categoryId);
 
-const categoryId = useSelector((state) => state.filterSlice.categoryId)
- const dispatch = useDispatch()
-  const {searchValue} = React.useContext(SearchContext)
+  const dispatch = useDispatch();
+  const { searchValue } = React.useContext(SearchContext);
   let [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
-  // const [categoryId, setCategoryId] = React.useState(0); 
   const [currentPage, setCurrentPage] = React.useState(1);
-  const [sortType, setSortType] = React.useState({
-    name: "Popular",
-    sortType: "rating",
-  });
 
 
   const onChangeCategory = (id) => {
-  dispatch(setCategoryID(id))
-  }
+    dispatch(setCategoryID(id));
+  };
 
   React.useEffect(() => {
     setIsLoading(true);
-    const search = searchValue ? `&search = ${searchValue}` : ''
+    const search = searchValue ? `&search = ${searchValue}` : "";
     fetch(
       `https://63a6dada59fd83b1bb393cd1.mockapi.io/items?page=${currentPage}&limit=4&${
         categoryId > 0 ? `category =${categoryId} ` : ""
@@ -41,7 +36,7 @@ const categoryId = useSelector((state) => state.filterSlice.categoryId)
         setIsLoading(false);
       });
     window.scrollTo(0, 0);
-  }, [categoryId, sortType, searchValue, currentPage]); 
+  }, [categoryId, sortType, searchValue, currentPage]);
 
   const pizzas = items
     .filter((obj) => {
@@ -49,22 +44,20 @@ const categoryId = useSelector((state) => state.filterSlice.categoryId)
         return true;
       }
       return false;
-    }).map((obj) => <PizzaBlock key={obj.id} {...obj} />);
-  const skeleton = [...new Array(6)].map((_, index) => 
+    })
+    .map((obj) => <PizzaBlock key={obj.id} {...obj} />);
+  const skeleton = [...new Array(6)].map((_, index) => (
     <Skeleton key={index} />
-   );
+  ));
   return (
     <div className="container">
       <div className="content__top">
-        <Categories
-          value={categoryId}
-          onClickCategory={onChangeCategory}
-        />
+        <Categories value={categoryId} onClickCategory={onChangeCategory} />
         <Sort value={sortType} onChangeSort={(id) => setSortType(id)} />
       </div>
       <h2 className="content__title">All pizza</h2>
       <div className="content__items">{isLoading ? skeleton : pizzas}</div>
-      <Pagination onChangePage ={number => setCurrentPage(number)}/>
+      <Pagination onChangePage={(number) => setCurrentPage(number)} />
     </div>
   );
 };
