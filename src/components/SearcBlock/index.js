@@ -6,6 +6,11 @@ import { SearchContext } from "../../App";
 const Search = () => {
   const {searchValue, setSearchValue} = React.useContext(SearchContext)
   const inputRef = React.useRef()
+
+  const onClickClear = () => {
+    setSearchValue('')
+    inputRef.current.focus();
+  }
   
   return (
     <div className={style.root}>
@@ -30,7 +35,7 @@ const Search = () => {
       />
       {searchValue && (
         <svg
-          onClick={() => setSearchValue("")}
+          onClick={ onClickClear}
           className={style.clearIcon}
           height="48"
           viewBox="0 0 48 48"
