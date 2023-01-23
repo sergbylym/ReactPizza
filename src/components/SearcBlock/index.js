@@ -5,6 +5,8 @@ import { SearchContext } from "../../App";
 
 const Search = () => {
   const {searchValue, setSearchValue} = React.useContext(SearchContext)
+  const inputRef = React.useRef()
+  
   return (
     <div className={style.root}>
       <svg
@@ -20,6 +22,7 @@ const Search = () => {
         />
       </svg>
       <input
+      ref={inputRef}
         value={searchValue}
         onChange={(event) => setSearchValue(event.target.value)}
         className={style.input}
