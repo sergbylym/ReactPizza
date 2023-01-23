@@ -6,6 +6,7 @@ import PizzaBlock from "../components/PizzaBock";
 import Pagination from "../components/Pagination";
 import { SearchContext } from "../App";
 import { setCategoryID } from "../redux/slices/filterSlice";
+import axios from 'axios'
 import { useSelector, useDispatch } from "react-redux";
 const Home = () => {
   const categoryId = useSelector((state) => state.filterSlice.categoryId);
@@ -24,15 +25,16 @@ const Home = () => {
   React.useEffect(() => {
     setIsLoading(true);
     const search = searchValue ? `&search = ${searchValue}` : "";
-    fetch(
+   axios
+   .get(
       `https://63a6dada59fd83b1bb393cd1.mockapi.io/items?page=${currentPage}&limit=4&${
         categoryId > 0 ? `category =${categoryId} ` : ""
       }
       &sortBy=${sortType.sortProp}&oreder=desc$ ${search} `
     )
-      .then((res) => res.json())
-      .then((arr) => {
-        setItems(arr);
+      
+      .then((res) => {
+        setItems(res.data);
         setIsLoading(false);
       });
     window.scrollTo(0, 0);
