@@ -1,7 +1,7 @@
 import style from "./SearchBlock.module.scss";
 import React from "react";
 import { SearchContext } from "../../App";
-
+import debounce from "lodash.debounce";
 
 const Search = () => {
   const {searchValue, setSearchValue} = React.useContext(SearchContext)
