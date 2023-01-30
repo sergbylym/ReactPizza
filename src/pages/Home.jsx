@@ -23,7 +23,7 @@ const Home = () => {
   };
 
   React.useEffect(() => {
-    setIsLoading(true);
+    setIsLoading(true); 
     const search = searchValue ? `&search = ${searchValue}` : "";
    axios
    .get(
@@ -65,3 +65,4 @@ const Home = () => {
 };
 
 export default Home;
+  
