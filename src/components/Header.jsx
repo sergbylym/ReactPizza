@@ -1,10 +1,12 @@
 import { NavLink } from 'react-router-dom';
 import PizzaLogo from '../assets/img/pizza-logo.svg'
 import Search from './SearcBlock';
-
+import { useSelector } from 'react-redux';
 
 const Header = () => {
-  return (
+
+const {items, totaPrice} = useSelector(state => state.cartSlice) 
+ return (
     <div className="header">
       <div className="container">
          <NavLink to='/'>
@@ -19,7 +21,7 @@ const Header = () => {
         <Search/>
         <div className="header__cart">
           <NavLink to="/cart" className="button button--cart">
-            <span>520 UA</span>
+            <span>{totaPrice}UA</span>
             <div className="button__delimiter"></div>
             <svg
               width="18"
@@ -50,7 +52,7 @@ const Header = () => {
                 strokeLinejoin="round"
               />
             </svg>
-            <span>3</span>
+            <span>{items}</span>
           </NavLink>
         </div>
       </div>
