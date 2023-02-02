@@ -5,7 +5,8 @@ import { useSelector } from 'react-redux';
 
 const Header = () => {
 
-const {items, totaPrice} = useSelector(state => state.cartSlice) 
+const {items, totalPrice} = useSelector(state => state.cartSlice) 
+
  return (
     <div className="header">
       <div className="container">
@@ -21,7 +22,7 @@ const {items, totaPrice} = useSelector(state => state.cartSlice)
         <Search/>
         <div className="header__cart">
           <NavLink to="/cart" className="button button--cart">
-            <span>{totaPrice}UA</span>
+            <span>{totalPrice}</span>
             <div className="button__delimiter"></div>
             <svg
               width="18"
@@ -52,7 +53,7 @@ const {items, totaPrice} = useSelector(state => state.cartSlice)
                 strokeLinejoin="round"
               />
             </svg>
-            <span>{items}</span>
+            <span>{items.length}</span>
           </NavLink>
         </div>
       </div>

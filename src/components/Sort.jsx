@@ -26,19 +26,19 @@ const Sort = () => {
    } //func which close popup onClick
 
 
-   React.useEffect(() => {
-    const handClickOutside =(event)=> {
-      if(event.path.includes(sortRef.current.value)) {
-        setOpen(false)
-      }
-}
-document.body.addEventListener('click', handClickOutside);
+//    React.useEffect(() => {
+//     const handClickOutside =(event)=> {
+//       if(event.path.includes(sortRef.current.value)) {
+//         setOpen(false)
+//       }
+// }
+// document.body.addEventListener('click', handClickOutside);
 
-return () => {
-  document.body.removeEventListener('click', handClickOutside)
-}
+// return () => {
+//   document.body.removeEventListener('click', handClickOutside)
+// }
 
-}, [])
+// }, [])
    return (
       <div ref={sortRef} className="sort">
       <div className="sort__label">
