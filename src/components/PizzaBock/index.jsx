@@ -1,8 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
  import {addItem} from '../../redux/slices/cartSlice'
-const PizzaBlock = ({ id, title, price, imageUrl, sizes, types }) => {
-  const typeNames = ["Traditional", "Thin crust"];
+ const typeNames = ["Traditional", "Thin crust"];  
+ const PizzaBlock = ({ id, title, price, imageUrl, sizes, types }) => {
+  
   const [activeType, setActiveType] = React.useState(0)
   const [activeSize, setActiveSize] = React.useState(0)
   const dispatch = useDispatch()
@@ -12,7 +13,7 @@ const PizzaBlock = ({ id, title, price, imageUrl, sizes, types }) => {
       title,
       price,
       imageUrl,
-      types: activeType,
+      types: typeNames[activeType],
       sizes: activeSize,
     }
     dispatch(addItem(item))
