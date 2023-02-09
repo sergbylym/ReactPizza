@@ -8,6 +8,7 @@ import { SearchContext } from "../App";
 import { setCategoryID, setPageCount } from "../redux/slices/filterSlice";
 import axios from 'axios'
 import { useSelector, useDispatch } from "react-redux";
+const arr = [1,2,3,4]
 const Home = () => {
   const categoryId = useSelector((state) => state.filterSlice.categoryId);
 const pageCount = useSelector((state) => state.filterSlice.pageCount)
@@ -15,7 +16,7 @@ const pageCount = useSelector((state) => state.filterSlice.pageCount)
   const { searchValue } = React.useContext(SearchContext);
   let [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
-
+ 
   const sortType = useSelector((state) => state.filterSlice.sort.sortType)
 console.log(sortType)
   const onChangeCategory = (id) => {
